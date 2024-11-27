@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9309B95C-8B0B-4DDB-A023-DF577B35E128}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{32F4B95E-98AD-4C64-ACC4-CCEDF0F2B15A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.Application", "WebShopSolution.Application\WebShopSolution.Application.csproj", "{0FC5A463-6781-4EBE-BA10-868D11CC6D46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.Domain", "WebShopSolution.Domain\WebShopSolution.Domain.csproj", "{06502AC9-9558-4273-A07D-92BC00CC10EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.Infrastructure", "WebShopSolution.Infrastructure\WebShopSolution.Infrastructure.csproj", "{C30B37C5-53E7-4EB7-83BA-F5321130FC48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.API", "WebShopSolution.API\WebShopSolution.API.csproj", "{DAD01810-4AD1-4BE0-8979-824D7A446A2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.Services", "WebShopSolution.Services\WebShopSolution.Services.csproj", "{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopSolution.Tests", "WebShopSolution.Tests\WebShopSolution.Tests.csproj", "{AA535737-C6CC-49F2-8155-64C63FF143E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FC5A463-6781-4EBE-BA10-868D11CC6D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC5A463-6781-4EBE-BA10-868D11CC6D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC5A463-6781-4EBE-BA10-868D11CC6D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC5A463-6781-4EBE-BA10-868D11CC6D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06502AC9-9558-4273-A07D-92BC00CC10EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06502AC9-9558-4273-A07D-92BC00CC10EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06502AC9-9558-4273-A07D-92BC00CC10EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06502AC9-9558-4273-A07D-92BC00CC10EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30B37C5-53E7-4EB7-83BA-F5321130FC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30B37C5-53E7-4EB7-83BA-F5321130FC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30B37C5-53E7-4EB7-83BA-F5321130FC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30B37C5-53E7-4EB7-83BA-F5321130FC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD01810-4AD1-4BE0-8979-824D7A446A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD01810-4AD1-4BE0-8979-824D7A446A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD01810-4AD1-4BE0-8979-824D7A446A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD01810-4AD1-4BE0-8979-824D7A446A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA535737-C6CC-49F2-8155-64C63FF143E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA535737-C6CC-49F2-8155-64C63FF143E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA535737-C6CC-49F2-8155-64C63FF143E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA535737-C6CC-49F2-8155-64C63FF143E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0FC5A463-6781-4EBE-BA10-868D11CC6D46} = {9309B95C-8B0B-4DDB-A023-DF577B35E128}
+		{06502AC9-9558-4273-A07D-92BC00CC10EA} = {9309B95C-8B0B-4DDB-A023-DF577B35E128}
+		{C30B37C5-53E7-4EB7-83BA-F5321130FC48} = {9309B95C-8B0B-4DDB-A023-DF577B35E128}
+		{DAD01810-4AD1-4BE0-8979-824D7A446A2F} = {9309B95C-8B0B-4DDB-A023-DF577B35E128}
+		{B197EAE9-1ABF-45D0-BC06-3D77DA770EFA} = {9309B95C-8B0B-4DDB-A023-DF577B35E128}
+		{AA535737-C6CC-49F2-8155-64C63FF143E7} = {32F4B95E-98AD-4C64-ACC4-CCEDF0F2B15A}
+	EndGlobalSection
+EndGlobal
