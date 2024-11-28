@@ -14,8 +14,7 @@ namespace WebShop.UnitOfWork
         IOrderRepository Orders { get; }
         IRepository<T> Repository<T>() where T : class;
 
-        // Sparar förändringar (om du använder en databas)
-        Task NotifyProductAdded(Product product); // Notifierar observatörer om ny produkt
+        Task NotifyProductAdded(Product product); 
         Task Complete();
     }
 }

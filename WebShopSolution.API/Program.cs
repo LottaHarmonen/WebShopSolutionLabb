@@ -8,6 +8,7 @@ using WebShop.Services.Order;
 using WebShop.Services.Product;
 using WebShop.Services.User;
 using WebShop.UnitOfWork;
+using WebShopSolution.Application.Factories;
 
 // Add services to the container.
 
@@ -26,6 +27,8 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddScoped<OrderFactoryManager>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

@@ -1,4 +1,6 @@
-﻿namespace WebShop;
+﻿using System.ComponentModel;
+
+namespace WebShop;
 
 public class Order
 {
@@ -8,7 +10,9 @@ public class Order
 
     public List<Product> Products { get; set; }
 
-    public DateTime OrderDate { get; set; }
+    [DefaultValue("Standard")]
+    public string OrderType { get; set; } = "Standard";
 
+    public int Discount { get; set; }
 
 }

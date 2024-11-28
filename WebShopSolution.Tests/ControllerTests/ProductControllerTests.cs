@@ -63,7 +63,7 @@ public class ProductControllerTests
         await _controller.AddProduct(mockProduct);
 
         //Assert
-        A.CallTo(() => _fakeProductService.Add(mockProduct)).MustHaveHappenedOnceExactly();
+        A.CallTo(() => _fakeProductService.AddProduct(mockProduct)).MustHaveHappenedOnceExactly();
     }
 
     [Fact]

@@ -14,7 +14,7 @@ public class GenericService<T> : IGenericService<T> where T : class
         _repository = _unitOfWork.Repository<T>();
     }
 
-    public async Task Add(T? entity)
+    public virtual async Task Add(T? entity)
     {
         await _repository.Add(entity);
         await _unitOfWork.Complete();

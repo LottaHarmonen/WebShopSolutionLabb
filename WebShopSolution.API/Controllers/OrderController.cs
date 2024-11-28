@@ -40,7 +40,7 @@ namespace WebShop.Controllers
             if (order == null)
                 return BadRequest("Order is invalid");
 
-            await _orderService.AddOrderWithProductValidation(order);
+            await _orderService.Add(order);
             return Ok("Order added successfully");
 
         }

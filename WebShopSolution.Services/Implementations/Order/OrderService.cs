@@ -1,15 +1,21 @@
 ﻿using WebShop.DataAccess.Repositories;
 using WebShop.DataAccess.Repositories.Order;
 using WebShop.UnitOfWork;
+using WebShopSolution.Application.Factories;
 
 namespace WebShop.Services.Order;
 
-public class OrderService(IUnitOfWork unitOfWork) : GenericService<WebShop.Order>(unitOfWork), IOrderService
+public class OrderService(IUnitOfWork unitOfWork, OrderFactoryManager? orderFactoryManager = null) : GenericService<WebShop.Order>(unitOfWork), IOrderService
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
+    private readonly OrderFactoryManager _orderFactoryManager = orderFactoryManager;
 
-    public async Task AddOrderWithProductValidation(WebShop.Order order)
+    public override async Task Add(WebShop.Order order)
     {
+        //Abstract factory
+        var factory = _orderFactoryManager.GetFactory(order.OrderType);
+        var newOrder = factory.CreateOrder(order);
+
         var validatedProducts = new List<WebShop.Product>();
 
         foreach (var product in order.Products)
@@ -23,13 +29,10 @@ public class OrderService(IUnitOfWork unitOfWork) : GenericService<WebShop.Order
             validatedProducts.Add(fetchedProduct);
         }
 
-        order.Products.Clear();
-        foreach (var validatedProduct in validatedProducts)
-        {
-            order.Products.Add(validatedProduct);
-        }
+        newOrder.Products = validatedProducts;
 
-        await Add(order);
+        await _unitOfWork.Orders.Add(newOrder);
+        await _unitOfWork.Complete();
     }
 
     public override async Task<WebShop.Order> Get(int id)

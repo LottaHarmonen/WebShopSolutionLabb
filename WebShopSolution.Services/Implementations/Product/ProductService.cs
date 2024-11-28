@@ -13,4 +13,10 @@ public class ProductService(IUnitOfWork unitOfWork) : GenericService<WebShop.Pro
     {
         return await _unitOfWork.Products.GetProductByCategory(name);
     }
+
+    public async Task AddProduct(WebShop.Product product)
+    {
+        await Add(product);
+        await _unitOfWork.NotifyProductAdded(product);
+    }
 }

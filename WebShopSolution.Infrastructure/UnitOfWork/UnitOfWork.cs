@@ -5,6 +5,7 @@ using WebShop.DataAccess.Repositories.Order;
 using WebShop.DataAccess.Repositories.Product;
 using WebShop.DataAccess.Repositories.User;
 using WebShop.Notifications;
+using WebShopSolution.Application.Factories;
 
 namespace WebShop.UnitOfWork
 {

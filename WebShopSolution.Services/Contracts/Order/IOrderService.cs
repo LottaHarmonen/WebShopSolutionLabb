@@ -2,5 +2,5 @@
 
 public interface IOrderService : IGenericService<WebShop.Order>
 {
-    Task AddOrderWithProductValidation(WebShop.Order order);
+    Task Add(WebShop.Order order);
 }

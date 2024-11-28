@@ -72,13 +72,13 @@ public class OrderControllerTests
         // Arrange
         var mockOrder = A.Fake<Order>();
 
-        A.CallTo(() => _fakeOrderService.AddOrderWithProductValidation(mockOrder));
+        A.CallTo(() => _fakeOrderService.Add(mockOrder));
 
         //Act
         await _controller.AddNewOrder(mockOrder);
 
         //Assert
-        A.CallTo(() => _fakeOrderService.AddOrderWithProductValidation(mockOrder)).MustHaveHappenedOnceExactly();
+        A.CallTo(() => _fakeOrderService.Add(mockOrder)).MustHaveHappenedOnceExactly();
     }
 
     [Fact]

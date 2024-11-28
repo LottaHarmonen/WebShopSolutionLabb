@@ -32,7 +32,7 @@ namespace WebShop.Controllers
             if (product == null)
                 return BadRequest();
 
-            await _productService.Add(product);
+            await _productService.AddProduct(product);
 
             return Ok("Product added");
         }

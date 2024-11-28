@@ -19,7 +19,6 @@ public class OrderRepositoryTests
         var order = new Order()
         {
             Id = 1,
-            OrderDate = DateTime.Today,
             UserId = 1
         };
 
@@ -46,7 +45,6 @@ public class OrderRepositoryTests
         var order = new Order()
         {
             Id = 1,
-            OrderDate = DateTime.Today,
             UserId = 1
         };
 
@@ -64,7 +62,7 @@ public class OrderRepositoryTests
     }
 
     [Fact]
-    public async Task GetAllOrdera_GetsAllOrdersFromDatabase()
+    public async Task GetAllOrder_GetsAllOrdersFromDatabase()
     {
         //Arrange
         var options = new DbContextOptionsBuilder<MyDbContext>()
@@ -76,9 +74,9 @@ public class OrderRepositoryTests
 
         var listOfOrders = new List<Order>
         {
-            new(){ Id = 1, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 2, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 3, OrderDate = DateTime.Today, Products = new List<Product>()}
+            new(){ Id = 1, Products = new List<Product>()},
+            new(){ Id = 2, Products = new List<Product>()},
+            new(){ Id = 3, Products = new List<Product>()}
         };
 
         foreach (var order in listOfOrders)
@@ -111,9 +109,9 @@ public class OrderRepositoryTests
 
         var listOfOrders = new List<Order>
         {
-            new(){ Id = 1, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 2, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 3, OrderDate = DateTime.Today, Products = new List<Product>()}
+            new(){ Id = 1, Products = new List<Product>()},
+            new(){ Id = 2, Products = new List<Product>()},
+            new(){ Id = 3, Products = new List<Product>()}
         };
 
         foreach (var order in listOfOrders)
@@ -149,9 +147,9 @@ public class OrderRepositoryTests
 
         var listOfOrders = new List<Order>
         {
-            new(){ Id = 1, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 2, OrderDate = DateTime.Today, Products = new List<Product>()},
-            new(){ Id = 3, OrderDate = DateTime.Today, Products = new List<Product>()}
+            new(){ Id = 1, Products = new List<Product>()},
+            new(){ Id = 2, Products = new List<Product>()},
+            new(){ Id = 3, Products = new List<Product>()}
         };
 
         foreach (var order in listOfOrders)

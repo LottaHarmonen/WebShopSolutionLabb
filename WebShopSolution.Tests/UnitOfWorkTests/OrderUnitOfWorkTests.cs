@@ -3,6 +3,7 @@ using WebShop.DataAccess.Repositories.Order;
 using WebShop.Services.Order;
 using WebShop.UnitOfWork;
 using WebShop;
+using WebShopSolution.Application.Factories;
 
 namespace WebShopTests.UnitOfWorkTests;
 
@@ -10,11 +11,16 @@ public class OrderUnitOfWorkTests
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly OrderFactoryManager _orderFactoryManager;
+    private readonly OrderService _orderService;
 
     public OrderUnitOfWorkTests()
     {
         _unitOfWork = A.Fake<IUnitOfWork>();
         _orderRepository = A.Fake<IOrderRepository>();
+        _orderFactoryManager = A.Fake<OrderFactoryManager>();
+        _orderService = new OrderService(_unitOfWork);
+
     }
 
 
@@ -22,13 +28,16 @@ public class OrderUnitOfWorkTests
     public async Task AddOrder_CallsRepositoryAdd_AndUnitOfWorkCompleteMethods()
     {
         //Arrange
+        var orderService = new OrderService(_unitOfWork, _orderFactoryManager);
         A.CallTo(() => _unitOfWork.Repository<Order>()).Returns(_orderRepository);
 
-        var orderService = new OrderService(_unitOfWork);
-        var product = A.Fake<Order>();
+        var order = new Order()
+        {
+            Products = new List<Product>()
+        };
 
         //Act
-        await orderService.Add(product);
+        await orderService.Add(order);
 
         //Assert
         A.CallTo(() => _unitOfWork.Complete()).MustHaveHappenedOnceExactly();
@@ -40,11 +49,10 @@ public class OrderUnitOfWorkTests
         //Arrange
         A.CallTo(() => _unitOfWork.Repository<Order>()).Returns(_orderRepository);
 
-        var orderService = new OrderService(_unitOfWork);
         var product = A.Fake<Order>();
 
         //Act
-        await orderService.Update(product);
+        await _orderService.Update(product);
 
         //Assert
         A.CallTo(() => _unitOfWork.Complete()).MustHaveHappenedOnceExactly();
@@ -56,11 +64,10 @@ public class OrderUnitOfWorkTests
         //Arrange
         A.CallTo(() => _unitOfWork.Repository<Order>()).Returns(_orderRepository);
 
-        var orderService = new OrderService(_unitOfWork);
         var product = A.Fake<Order>();
 
         //Act
-        await orderService.Delete(product.Id);
+        await _orderService.Delete(product.Id);
 
         //Assert
         A.CallTo(() => _unitOfWork.Complete()).MustHaveHappenedOnceExactly();
