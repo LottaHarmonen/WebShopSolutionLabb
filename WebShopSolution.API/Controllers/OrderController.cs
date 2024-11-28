@@ -37,15 +37,16 @@ namespace WebShop.Controllers
         [HttpPost]
         public async Task<ActionResult> AddNewOrder(Order order)
         {
-            if (order is null)
-                return BadRequest();
+            if (order == null)
+                return BadRequest("Order is invalid");
 
-            await _orderService.Add(order);
-            return Ok();
+            await _orderService.AddOrderWithProductValidation(order);
+            return Ok("Order added successfully");
+
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateProduct(Order order)
+        public async Task<ActionResult> UpdateOrder(Order order)
         {
             if (order is null)
                 return BadRequest();

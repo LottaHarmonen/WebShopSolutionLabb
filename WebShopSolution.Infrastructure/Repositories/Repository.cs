@@ -5,19 +5,21 @@ namespace WebShop.DataAccess.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {
-    private readonly DbSet<T> _dbSet;
+    protected readonly DbSet<T> _dbSet;
+    private readonly MyDbContext _dbContext;
 
     public Repository(MyDbContext dbContext)
     {
+        _dbContext = dbContext;
         _dbSet = dbContext.Set<T>();
     }
 
-    public async Task<T?> GetById(int id)
+    public virtual async Task<T?> GetById(int id)
     {
         return await _dbSet.FindAsync(id);
     }
 
-    public async Task<IEnumerable<T?>>? GetAll()
+    public virtual async Task<IEnumerable<T?>>? GetAll()
     {
         return await _dbSet.ToListAsync();
     }
@@ -29,9 +31,6 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task Update(T? entity)
     {
-        //_dbSet.Attach(entity);
-        //_dbContext.Entry(entity).State = EntityState.Modified;
-
         if (entity != null) _dbSet.Update(entity);
     }
 

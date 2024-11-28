@@ -16,19 +16,16 @@ public class GenericService<T> : IGenericService<T> where T : class
 
     public async Task Add(T? entity)
     {
-
         await _repository.Add(entity);
-        
-
         await _unitOfWork.Complete();
     }
 
-    public Task<IEnumerable<T?>>? GetAll()
+    public virtual Task<IEnumerable<T?>>? GetAll()
     {
         return _repository.GetAll();
     }
 
-    public Task<T?> Get(int id)
+    public virtual Task<T?> Get(int id)
     {
         return _repository.GetById(id);
     }

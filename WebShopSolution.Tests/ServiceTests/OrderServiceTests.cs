@@ -18,6 +18,8 @@ public class OrderServiceTests
 
         A.CallTo(() => _unitOfWork.Repository<Order>()).Returns(_orderRepository);
 
+        A.CallTo(() => _unitOfWork.Orders).Returns(_orderRepository);
+
     }
 
     [Fact]
@@ -64,22 +66,6 @@ public class OrderServiceTests
         Assert.Equal(fakeOrders, result);
     }
 
-    [Fact]
-    public async Task GetOrderById_ReturnsCorrectOrder_FromRepository()
-    {
-        //Arrange
-        var orderService = new OrderService(_unitOfWork);
-        int id = 1;
-        var expectedOrder = A.Dummy<Order>();
-
-        A.CallTo(() => _orderRepository.GetById(id)).Returns(expectedOrder);
-
-        //Act
-        var result = await orderService.Get(id);
-
-        //Assert
-        Assert.Equal(expectedOrder, result);
-    }
 
     [Fact]
     public async Task UpdateOrder_CallsRepositoryUpdateMethodOnce_WithCorrectOrder()

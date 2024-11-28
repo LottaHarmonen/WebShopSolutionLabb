@@ -35,14 +35,23 @@ namespace WebShop.Controllers
 
             return Ok(customers);
         }
-
         [HttpPost]
-        public async Task<ActionResult> UpdateCustomer(Customer customer)
+        public async Task<ActionResult> AddCustomer(Customer customer)
         {
             if (customer is null)
                 return BadRequest();
 
             await _customerService.Add(customer);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdateCustomer(Customer customer)
+        {
+            if (customer is null)
+                return BadRequest();
+
+            await _customerService.Update(customer);
             return Ok();
         }
 
@@ -53,6 +62,5 @@ namespace WebShop.Controllers
             return Ok();
         }
 
-        //TODO Create a put that updates the user
     }
 }

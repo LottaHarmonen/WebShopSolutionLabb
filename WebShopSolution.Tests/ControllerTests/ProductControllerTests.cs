@@ -76,7 +76,7 @@ public class ProductControllerTests
         var result = await _controller.AddProduct(mockProduct);
 
         // Assert
-        Assert.IsType<OkResult>(result);
+        Assert.IsType<OkObjectResult>(result);
     }
 
     [Fact]

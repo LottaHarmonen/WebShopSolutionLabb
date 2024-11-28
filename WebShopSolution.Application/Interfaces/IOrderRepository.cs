@@ -2,5 +2,5 @@
 
 public interface IOrderRepository : IRepository<WebShop.Order>
 {
-    
+
 }

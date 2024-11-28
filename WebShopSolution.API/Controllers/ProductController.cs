@@ -34,11 +34,7 @@ namespace WebShop.Controllers
 
             await _productService.Add(product);
 
-            // Sparar förändringar
-
-            // Notifierar observatörer om att en ny produkt har lagts till
-
-            return Ok();
+            return Ok("Product added");
         }
 
         [HttpPut]
