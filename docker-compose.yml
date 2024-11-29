@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  webshop:
+    build:
+      context: .
+      dockerfile: WebShopSolution.API/Dockerfile
+    container_name: webshop
+    ports:
+      - "8080:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=MyDatabase;User Id=sa;Password=SuperSafePass.123;TrustServerCertificate=True;"
+
+volumes:
+  sqlserver_data:
